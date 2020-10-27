@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hefeng.guli.service.edu.entity.Teacher;
 import com.hefeng.guli.service.edu.entity.vo.TeacherQueryVo;
+import com.hefeng.guli.service.edu.feign.OssFileService;
 import com.hefeng.guli.service.edu.service.TeacherService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -21,6 +22,9 @@ import java.util.List;
 public class TeacherController {
     @Autowired
     private TeacherService teacherService;
+
+    @Autowired
+    private OssFileService ossFileService;
 
     @ApiOperation("所有讲师列表")
     @GetMapping("list")
@@ -91,6 +95,14 @@ public class TeacherController {
         } else {
             return R.error().message("数据不存在");
         }
+    }
+
+
+    @ApiOperation("测试服务调用")
+    @GetMapping("test")
+    public R test(){
+        ossFileService.test();
+        return R.ok();
     }
 
 }

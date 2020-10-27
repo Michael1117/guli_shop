@@ -1,0 +1,21 @@
+server:
+  port: 8120
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-oss
+  #spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # nacos服务地址
+
+aliyun:
+  oss:
+    endpoint: oss-cn-shenzhen.aliyuncs.com
+    keyid: LTAI4GHShE79kGLwwjhoA7uf
+    keysecret: EoaLef36fplTpbM7FhMUYhoC9jbTPY
+    bucketname: guli-file-20-1
+
